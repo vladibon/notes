@@ -1,60 +1,57 @@
-import { defineStore } from 'pinia';
+import { createStore } from 'vuex';
 import { useStorage } from '@vueuse/core';
 
-export const exampleNotes = [
-  {
-    id: 1,
-    title: 'First note',
-    content: 'This is the first note',
-    category: 'work',
-    createdAt: new Date().toISOString(),
-    editedAt: new Date().toISOString(),
-    selected: false,
-  },
-  {
-    id: 2,
-    title: 'Second note',
-    content: 'This is the second note',
-    category: 'personal',
-    createdAt: new Date().toISOString(),
-    editedAt: new Date().toISOString(),
-    selected: false,
-  },
-  {
-    id: 3,
-    title: 'Third note',
-    content: 'This is the third note',
-    category: 'work',
-    createdAt: new Date().toISOString(),
-    editedAt: new Date().toISOString(),
-    selected: true,
-  },
-];
+// export const exampleNotes = [
+//   {
+//     id: 1,
+//     title: 'First note',
+//     content: 'This is the first note',
+//     category: 'work',
+//     createdAt: new Date().toISOString(),
+//     editedAt: new Date().toISOString(),
+//     selected: false,
+//   },
+//   {
+//     id: 2,
+//     title: 'Second note',
+//     content: 'This is the second note',
+//     category: 'personal',
+//     createdAt: new Date().toISOString(),
+//     editedAt: new Date().toISOString(),
+//     selected: false,
+//   },
+//   {
+//     id: 3,
+//     title: 'Third note',
+//     content: 'This is the third note',
+//     category: 'work',
+//     createdAt: new Date().toISOString(),
+//     editedAt: new Date().toISOString(),
+//     selected: true,
+//   },
+// ];
 
-export const useNoteStore = defineStore('notes', {
-  state: () => ({
-    notes: useStorage('pinia/notes', []),
-  }),
+export default createStore({
+  state: {
+    notes: useStorage('vuex/notes', []),
+  },
 
-  // getters: {
-  //   doubleCount: state => state.count * 2,
-  // },
-
-  actions: {
-    getAllNotes() {
-      return this.notes;
+  getters: {
+    getAllNotes: state => {
+      return state.notes;
     },
 
-    getNoteById(id) {
-      return this.notes.find(note => note.id === id);
+    getNoteById: state => id => {
+      return state.notes.find(note => note.id === id);
     },
+  },
 
-    createNote() {
-      const newNoteId = this.notes.length.toString();
+  mutations: {
+    createNote(state, id) {
       const currentDate = new Date().toISOString();
 
-      this.notes.push({
-        id: newNoteId,
+      state.notes.push({
+        id,
         title: 'New note',
         content: 'This is the new note',
         category: 'work',
@@ -62,22 +59,30 @@ export const useNoteStore = defineStore('notes', {
         editedAt: currentDate,
         selected: false,
       });
+    },
+  },
+
+  actions: {
+    createNewNote({ state, commit }) {
+      const newNoteId = state.notes.length.toString();
+
+      commit('createNote', newNoteId);
 
       return newNoteId;
     },
 
-    updateNoteById(id, updatedNote) {
-      const noteIndex = this.notes.findIndex(note => note.id === id);
+    // updateNoteById(id, updatedNote) {
+    //   const noteIndex = this.notes.findIndex(note => note.id === id);
 
-      this.notes[noteIndex] = updatedNote;
-    },
+    //   this.notes[noteIndex] = updatedNote;
+    // },
 
-    deleteNoteById(id) {
-      this.notes = this.notes.filter(note => note.id !== id);
-    },
+    // deleteNoteById(id) {
+    //   this.notes = this.notes.filter(note => note.id !== id);
+    // },
 
-    deleteAllNotes() {
-      this.notes = [];
-    },
+    // deleteAllNotes() {
+    //   this.notes = [];
+    // },
   },
 });

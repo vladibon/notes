@@ -1,17 +1,9 @@
 <script>
-import { useNoteStore } from '@/stores/notes';
-
 export default {
   data() {
     return {
-      noteStore: useNoteStore(),
+      notes: this.$store.getters.getAllNotes,
     };
-  },
-
-  computed: {
-    notes() {
-      return this.noteStore.getAllNotes();
-    },
   },
 
   methods: {
@@ -19,8 +11,8 @@ export default {
       this.$router.push({ path: '/editor', query: { id } });
     },
 
-    addNewNote() {
-      const newNoteId = this.noteStore.createNote();
+    async addNewNote() {
+      const newNoteId = await this.$store.dispatch('createNewNote');
 
       this.$router.push({ path: '/editor', query: { id: newNoteId } });
     },

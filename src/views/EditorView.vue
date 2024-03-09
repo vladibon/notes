@@ -1,16 +1,9 @@
 <script>
-import { useNoteStore } from '@/stores/notes';
-
 export default {
   data() {
     return {
-      noteStore: useNoteStore(),
-      note: null,
+      note: this.$store.getters.getNoteById(this.$route.query.id),
     };
-  },
-
-  mounted() {
-    this.note = this.noteStore.getNoteById(this.$route.query.id);
   },
 };
 </script>
