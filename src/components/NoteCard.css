@@ -1,7 +1,16 @@
 .note-card {
   margin: calc(var(--grid-item-gap) / 2);
+  padding: 10px;
+  border: 1px solid var(--border-color);
+  border-radius: 8px;
+  box-shadow: var(--card-shadow);
+  transition: box-shadow var(--animation);
   overflow: hidden;
-  text-overflow: ellipsis;
+  cursor: pointer;
+}
+
+.note-card:hover {
+  box-shadow: var(--active-card-shadow);
 }
 
 @media screen and (max-width: 319px) {
@@ -12,7 +21,7 @@
 
 @media screen and (min-width: 320px) {
   .note-card {
-    flex-basis: calc((100% - 3 * var(--grid-item-gap)) / 3);
+    flex-basis: calc((100% - 2 * var(--grid-item-gap)) / 2);
   }
 }
 
@@ -26,4 +35,37 @@
   .note-card {
     flex-basis: calc((100% - 6 * var(--grid-item-gap)) / 6);
   }
+}
+
+.title {
+  height: 31px;
+  margin-top: 0;
+  margin-bottom: 10px;
+  font-size: 18px;
+  color: var(--title-color);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+.content {
+  height: 75px;
+  margin-bottom: 12px;
+  color: var(--text-color);
+  overflow-y: scroll;
+  text-overflow: ellipsis;
+}
+
+.category {
+  margin-bottom: 10px;
+  padding: 5px 10px;
+  background-color: var(--accent-bg-color);
+  border-radius: 5px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.date {
+  color: var(--date-color);
+  font-size: 12px;
+  text-align: center;
 }

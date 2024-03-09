@@ -33,9 +33,14 @@ export default {
     <button @click="createNoteAndRedirect">Add New Note</button>
 
     <ul class="note-list">
-      <NoteCard v-for="note in notes" :key="note.id" :note="note" />
+      <NoteCard
+        v-for="note in notes"
+        :key="note.id"
+        :note="note"
+        @click="navigateToNotePage(note.id)"
+      />
     </ul>
   </div>
 </template>
 
-<style src="./NoteList.css"></style>
+<style scoped src="./NoteList.css"></style>
