@@ -10,9 +10,9 @@ const router = createRouter({
       component: ListView,
     },
     {
-      path: '/editor',
-      name: 'editor',
-      component: () => import('../views/EditorView.vue'),
+      path: '/note',
+      name: 'note',
+      component: () => import('../views/NoteView.vue'),
     },
   ],
 });

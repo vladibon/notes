@@ -7,14 +7,14 @@ export default {
   },
 
   methods: {
-    modifyNote(id) {
-      this.$router.push({ path: '/editor', query: { id } });
-    },
-
     async addNewNote() {
       const newNoteId = await this.$store.dispatch('createNewNote');
 
-      this.$router.push({ path: '/editor', query: { id: newNoteId } });
+      this.redirectToNoteView(newNoteId);
+    },
+
+    redirectToNoteView(id) {
+      this.$router.push({ path: '/note', query: { id } });
     },
   },
 };
@@ -30,7 +30,7 @@ export default {
       <li
         v-for="{ id, title, content, createdAt, selected } in notes"
         :key="id"
-        @click="modifyNote(id)"
+        @click="this.redirectToNoteView(id)"
       >
         {{ title }}
         {{ content }}
