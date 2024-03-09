@@ -2,13 +2,13 @@
 export default {
   data() {
     return {
-      notes: this.$store.getters.getAllNotes,
+      notes: this.$store.state.notes,
     };
   },
 
   methods: {
-    async addNewNote() {
-      const newNoteId = await this.$store.dispatch('createNewNote');
+    async createNewNote() {
+      const newNoteId = await this.$store.dispatch('createNote');
 
       this.redirectToNoteView(newNoteId);
     },
@@ -24,7 +24,7 @@ export default {
   <main>
     <h1>Notes List</h1>
 
-    <button @click="addNewNote">Add New Note</button>
+    <button @click="createNewNote">Add New Note</button>
 
     <ul>
       <li

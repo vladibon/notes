@@ -37,52 +37,42 @@ export default createStore({
   },
 
   getters: {
-    getAllNotes: state => {
-      return state.notes;
-    },
-
     getNoteById: state => id => {
       return state.notes.find(note => note.id === id);
     },
   },
 
   mutations: {
-    createNote(state, id) {
-      const currentDate = new Date().toISOString();
+    addNote(state, newNote) {
+      state.notes.push(newNote);
+    },
 
-      state.notes.push({
-        id,
+    updateNote(state, updatedNote) {
+      const noteIndex = state.notes.findIndex(note => note.id === updatedNote.id);
+      state.notes[noteIndex] = updatedNote;
+    },
+
+    deleteNote(state, id) {
+      state.notes = state.notes.filter(note => note.id !== id);
+    },
+  },
+
+  actions: {
+    createNote({ state, commit }) {
+      const currentDate = new Date().toISOString();
+      const newNote = {
+        id: state.notes.length.toString(),
         title: 'New note',
         content: 'This is the new note',
         category: 'work',
         createdAt: currentDate,
         editedAt: currentDate,
         selected: false,
-      });
+      };
+
+      commit('addNote', newNote);
+
+      return newNote.id;
     },
-  },
-
-  actions: {
-    createNewNote({ state, commit }) {
-      const newNoteId = state.notes.length.toString();
-
-      commit('createNote', newNoteId);
-
-      return newNoteId;
-    },
-
-    // updateNoteById(id, updatedNote) {
-    //   const noteIndex = this.notes.findIndex(note => note.id === id);
-
-    //   this.notes[noteIndex] = updatedNote;
-    // },
-
-    // deleteNoteById(id) {
-    //   this.notes = this.notes.filter(note => note.id !== id);
-    // },
-
-    // deleteAllNotes() {
-    //   this.notes = [];
-    // },
   },
 });
