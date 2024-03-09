@@ -8,8 +8,8 @@ import { useStorage } from '@vueuse/core';
 //     content: 'This is the first note',
 //     category: 'work',
 //     createdAt: new Date().toISOString(),
-//     editedAt: new Date().toISOString(),
-//     selected: false,
+//     updatedAt: new Date().toISOString(),
+//     favorite: false,
 //   },
 //   {
 //     id: 2,
@@ -17,8 +17,8 @@ import { useStorage } from '@vueuse/core';
 //     content: 'This is the second note',
 //     category: 'personal',
 //     createdAt: new Date().toISOString(),
-//     editedAt: new Date().toISOString(),
-//     selected: false,
+//     updatedAt: new Date().toISOString(),
+//     favorite: false,
 //   },
 //   {
 //     id: 3,
@@ -26,8 +26,8 @@ import { useStorage } from '@vueuse/core';
 //     content: 'This is the third note',
 //     category: 'work',
 //     createdAt: new Date().toISOString(),
-//     editedAt: new Date().toISOString(),
-//     selected: true,
+//     updatedAt: new Date().toISOString(),
+//     favorite: true,
 //   },
 // ];
 
@@ -49,7 +49,8 @@ export default createStore({
 
     updateNote(state, updatedNote) {
       const noteIndex = state.notes.findIndex(note => note.id === updatedNote.id);
-      state.notes[noteIndex] = updatedNote;
+
+      state.notes.splice(noteIndex, 1, updatedNote);
     },
 
     deleteNote(state, id) {
@@ -66,13 +67,19 @@ export default createStore({
         content: 'This is the new note',
         category: 'work',
         createdAt: currentDate,
-        editedAt: currentDate,
-        selected: false,
+        updatedAt: currentDate,
+        favorite: false,
       };
 
       commit('addNote', newNote);
 
       return newNote.id;
+    },
+
+    updateNote({ commit }, updatedNote) {
+      updatedNote.updatedAt = new Date().toISOString();
+
+      commit('updateNote', updatedNote);
     },
   },
 });

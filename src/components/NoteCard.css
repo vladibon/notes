@@ -1,0 +1,29 @@
+.note-card {
+  margin: calc(var(--grid-item-gap) / 2);
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 319px) {
+  .note-card {
+    flex-basis: calc(100% - var(--grid-item-gap));
+  }
+}
+
+@media screen and (min-width: 320px) {
+  .note-card {
+    flex-basis: calc((100% - 3 * var(--grid-item-gap)) / 3);
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .note-card {
+    flex-basis: calc((100% - 4 * var(--grid-item-gap)) / 4);
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  .note-card {
+    flex-basis: calc((100% - 6 * var(--grid-item-gap)) / 6);
+  }
+}

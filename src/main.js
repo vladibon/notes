@@ -1,4 +1,3 @@
-import './assets/main.css';
 import { createApp } from 'vue';
 import store from './stores/notes';
 import router from './router';

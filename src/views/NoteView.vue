@@ -5,14 +5,22 @@ export default {
       note: this.$store.getters.getNoteById(this.$route.query.id),
     };
   },
+
+  methods: {
+    updateNote() {
+      this.$store.dispatch('updateNote', this.note);
+    },
+  },
 };
 </script>
 
 <template>
   <main>
+    <button @click="updateNote">Update Note</button>
+
     {{ note?.title }}
     {{ note?.content }}
-    {{ note?.createdAt }}
-    {{ note?.selected }}
+    {{ note?.updatedAt }}
+    {{ note?.favorite }}
   </main>
 </template>

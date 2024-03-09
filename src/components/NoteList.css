@@ -1,0 +1,5 @@
+.note-list {
+  display: flex;
+  flex-wrap: wrap;
+  margin: calc(var(--grid-item-gap) / -2);
+}
