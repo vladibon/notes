@@ -1,16 +1,17 @@
-<script setup>
-import { RouterLink, RouterView } from 'vue-router';
+<script>
+import { RouterView } from 'vue-router';
+import AppBar from '@/components/AppBar.vue';
+
+export default {
+  components: {
+    AppBar,
+    RouterView,
+  },
+};
 </script>
 
 <template>
-  <div class="container">
-    <header>
-      <nav>
-        <RouterLink to="/">Home</RouterLink>
-      </nav>
-    </header>
-  </div>
-
+  <AppBar />
   <RouterView />
 </template>
 

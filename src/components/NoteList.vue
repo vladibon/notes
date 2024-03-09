@@ -13,12 +13,6 @@ export default {
   },
 
   methods: {
-    async createNoteAndRedirect() {
-      const newNoteId = await this.$store.dispatch('createNote');
-
-      this.navigateToNotePage(newNoteId);
-    },
-
     navigateToNotePage(id) {
       this.$router.push({ path: '/note', query: { id } });
     },
@@ -28,10 +22,6 @@ export default {
 
 <template>
   <div class="container">
-    <h1>Notes List</h1>
-
-    <button @click="createNoteAndRedirect">Add New Note</button>
-
     <ul class="note-list">
       <NoteCard
         v-for="note in notes"
