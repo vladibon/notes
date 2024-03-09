@@ -1,9 +1,9 @@
 <script>
 export default {
-  data() {
-    return {
-      note: this.$store.getters.getNoteById(this.$route.query.id),
-    };
+  computed: {
+    note() {
+      return this.$store.getters.getNoteById(this.$route.query.id);
+    },
   },
 
   methods: {
