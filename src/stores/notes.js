@@ -1,5 +1,6 @@
 import { createStore } from 'vuex';
 import { useStorage } from '@vueuse/core';
+import { nanoid } from 'nanoid';
 
 // export const exampleNotes = [
 //   {
@@ -34,12 +35,11 @@ import { useStorage } from '@vueuse/core';
 export default createStore({
   state: {
     notes: useStorage('vuex/notes', []),
+    availableCategories: ['work', 'family', 'hobby'],
   },
 
   getters: {
-    getNoteById: state => id => {
-      return state.notes.find(note => note.id === id);
-    },
+    getNoteById: state => id => ({ ...state.notes.find(note => note.id === id) }),
   },
 
   mutations: {
@@ -59,13 +59,13 @@ export default createStore({
   },
 
   actions: {
-    createNote({ state, commit }) {
+    createNote({ commit }) {
       const currentDate = new Date().toISOString();
       const newNote = {
-        id: state.notes.length.toString(),
-        title: 'New note',
-        content: 'This is the new note',
-        category: 'work',
+        id: nanoid(5),
+        title: '',
+        content: '',
+        category: '',
         createdAt: currentDate,
         updatedAt: currentDate,
         favorite: false,
@@ -73,10 +73,10 @@ export default createStore({
 
       commit('addNote', newNote);
 
-      return newNote.id;
+      return newNote;
     },
 
-    updateNote({ commit }, updatedNote) {
+    editNote({ commit }, updatedNote) {
       updatedNote.updatedAt = new Date().toISOString();
 
       commit('updateNote', updatedNote);
