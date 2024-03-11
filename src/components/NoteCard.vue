@@ -21,10 +21,14 @@ export default {
 
 <template>
   <li class="note-card">
-    <h3 class="title">{{ note.title }}</h3>
-    <p class="content">{{ note.content }}</p>
-    <p class="category">{{ note.category }}</p>
-    <p class="date">{{ formatDate(note.createdAt) }}</p>
+    <RouterLink :to="{ name: 'note', params: { id: note.id } }">
+      <div class="card-content">
+        <p class="category">{{ note.category }}</p>
+        <h3 class="title">{{ note.title }}</h3>
+        <p class="content">{{ note.content }}</p>
+        <p class="date">{{ formatDate(note.updatedAt) }}</p>
+      </div>
+    </RouterLink>
   </li>
 </template>
 

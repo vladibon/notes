@@ -6,22 +6,9 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  /* background-color: var(--nav-bg-color);
-  box-shadow: var(--nav-shadow); */
 }
 
-
-.add-note-button {
-  padding: 6px;
-  color: var(--white-text-color);
-  background-color: var(--add-btn-bg-color);
-  transition: background-color var(--animation), box-shadow var(--animation);
-  border: none;
-  border-radius: 8px;
+.add-btn {
+  margin-left: auto;
   cursor: pointer;
-}
-
-.add-note-button:hover {
-  background-color: var(--add-btn-accent-bg-color);
-  box-shadow: var(--main-btn-shadow);
 }

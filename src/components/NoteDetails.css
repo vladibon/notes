@@ -1,0 +1,19 @@
+.text-field {
+  width: 100%;
+  height: 40px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  background-color: var(--text-field-bg-color);
+}
+
+.text-field:focus {
+  outline: none;
+}
+
+.note {
+  height: calc(100vh - 120px);
+  margin-top: 10px;
+  resize: none;
+}

@@ -1,26 +1,13 @@
 <script>
-export default {
-  computed: {
-    note() {
-      return this.$store.getters.getNoteById(this.$route.query.id);
-    },
-  },
+import NoteDetails from '@/components/NoteDetails.vue';
 
-  methods: {
-    updateNote() {
-      this.$store.dispatch('updateNote', this.note);
-    },
+export default {
+  components: {
+    NoteDetails,
   },
 };
 </script>
 
 <template>
-  <main>
-    <button @click="updateNote">Update Note</button>
-
-    {{ note?.title }}
-    {{ note?.content }}
-    {{ note?.updatedAt }}
-    {{ note?.favorite }}
-  </main>
+  <NoteDetails />
 </template>

@@ -1,12 +1,10 @@
 .note-card {
   margin: calc(var(--grid-item-gap) / 2);
-  padding: 10px;
   border: 1px solid var(--border-color);
   border-radius: 8px;
   box-shadow: var(--card-shadow);
   transition: box-shadow var(--animation);
   overflow: hidden;
-  cursor: pointer;
 }
 
 .note-card:hover {
@@ -37,6 +35,11 @@
   }
 }
 
+.card-content {
+  height: 100%;
+  padding: 10px;
+}
+
 .title {
   height: 31px;
   margin-top: 0;
@@ -58,7 +61,7 @@
 .category {
   margin-bottom: 10px;
   padding: 5px 10px;
-  background-color: var(--accent-bg-color);
+  background-color: var(--text-field-bg-color);
   border-radius: 5px;
   font-size: 12px;
   text-align: center;

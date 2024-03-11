@@ -10,7 +10,7 @@
 
   /* Background Colors */
   --bg-color: #ffffff;
-  --accent-bg-color: #f0f0f0;
+  --text-field-bg-color: #f8f8f8;
   --dark-bg-color: #2f303a;
   --add-btn-bg-color: #4caf50;
   --add-btn-accent-bg-color: #45a049;
@@ -20,10 +20,12 @@
   --white-logo-color: #ffffff;
   --accent-color: #2196f3;
   --border-color: #ddd;
+  --input-border-color: #3498db;
 
   /* Shadows */
   --card-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   --active-card-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+  --focus-input-shadow: 0 0 5px rgba(46, 204, 113, 0.5);
 
 
   --project-card-shadow: 0px 1px 1px rgba(0, 0, 0, 0.12), 0px 4px 4px rgba(0, 0, 0, 0.06),

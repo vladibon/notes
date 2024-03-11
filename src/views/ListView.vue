@@ -9,7 +9,5 @@ export default {
 </script>
 
 <template>
-  <main>
-    <NoteList />
-  </main>
+  <NoteList />
 </template>

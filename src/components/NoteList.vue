@@ -8,29 +8,18 @@ export default {
 
   data() {
     return {
-      notes: this.$store.state.notes,
+      notes: this.$store.state.notes.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
     };
-  },
-
-  methods: {
-    navigateToNotePage(id) {
-      this.$router.push({ path: '/note', query: { id } });
-    },
   },
 };
 </script>
 
 <template>
-  <div class="container">
+  <main class="container">
     <ul class="note-list">
-      <NoteCard
-        v-for="note in notes"
-        :key="note.id"
-        :note="note"
-        @click="navigateToNotePage(note.id)"
-      />
+      <NoteCard v-for="note in notes" :key="note.id" :note="note" />
     </ul>
-  </div>
+  </main>
 </template>
 
 <style scoped src="./NoteList.css"></style>
