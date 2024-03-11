@@ -10,7 +10,10 @@ export default createStore({
   },
 
   getters: {
-    getNotes: state => state.notes.filter(n => !state.favoritesFilter || n.favorite),
+    getNotes: state =>
+      state.notes
+        .filter(n => !state.favoritesFilter || n.favorite)
+        .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
 
     getNoteById: state => id => ({ ...state.notes.find(note => note.id === id) }),
   },
