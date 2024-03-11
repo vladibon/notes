@@ -41,23 +41,4 @@ export default {
   </ul>
 </template>
 
-<style scoped>
-.category-list {
-  display: flex;
-  justify-content: start;
-  flex-wrap: wrap;
-}
-
-.category-item {
-  display: flex;
-  align-items: center;
-  padding: 10px 0;
-  margin-right: 20px;
-  cursor: pointer;
-}
-
-.lable {
-  margin-left: 10px;
-  text-transform: capitalize;
-}
-</style>
+<style scoped src="./CategorySelect.css"></style>

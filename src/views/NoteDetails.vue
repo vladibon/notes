@@ -1,5 +1,5 @@
 <script>
-import CategorySelect from './CategorySelect.vue';
+import CategorySelect from '../components/CategorySelect.vue';
 
 export default {
   components: {
