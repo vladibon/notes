@@ -40,10 +40,17 @@
   padding: 10px;
 }
 
+.icons {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 4px;
+}
+
 .title {
   height: 31px;
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 4px;
   font-size: 18px;
   color: var(--title-color);
   overflow: hidden;
@@ -52,23 +59,13 @@
 
 .content {
   height: 75px;
-  margin-bottom: 12px;
+  margin-bottom: 4px;
   color: var(--text-color);
   overflow-y: scroll;
   text-overflow: ellipsis;
 }
 
-.category {
-  margin-bottom: 10px;
-  padding: 5px 10px;
-  background-color: var(--text-field-bg-color);
-  border-radius: 5px;
-  font-size: 12px;
-  text-align: center;
-}
-
 .date {
   color: var(--date-color);
   font-size: 12px;
-  text-align: center;
 }

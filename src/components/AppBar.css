@@ -1,5 +1,11 @@
 .header {
-  padding: 10px 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  border: 1px solid var(--border-color);
+  box-shadow: var(--card-shadow);
+  background-color: #fff;
 }
 
 .nav {
@@ -8,7 +14,12 @@
   align-items: center;
 }
 
+.list-page-link {
+  padding: 10px 0;
+}
+
 .add-btn {
   margin-left: auto;
+  padding: 10px 0;
   cursor: pointer;
 }

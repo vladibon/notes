@@ -30,13 +30,13 @@ export default {
       :id="category"
       @click="updateCategory"
     >
-      <svg width="28" height="28" :fill="category === selectedCategory ? '#2196f3' : '#aaa'">
+      <svg width="22" height="22" :fill="category === selectedCategory ? '#2196f3' : '#aaa'">
         <use :href="`/src/images/icons.svg#${category}`"></use>
       </svg>
 
-      <span class="lable" :style="`color: ${category === selectedCategory ? '#2196f3' : '#aaa'}`">{{
-        category
-      }}</span>
+      <span class="lable" :style="`color: ${category === selectedCategory ? '#2196f3' : '#aaa'}`">
+        {{ category }}
+      </span>
     </li>
   </ul>
 </template>
@@ -44,14 +44,15 @@ export default {
 <style scoped>
 .category-list {
   display: flex;
-  justify-content: center;
+  justify-content: start;
   flex-wrap: wrap;
 }
 
 .category-item {
   display: flex;
   align-items: center;
-  padding: 10px;
+  padding: 10px 0;
+  margin-right: 20px;
   cursor: pointer;
 }
 

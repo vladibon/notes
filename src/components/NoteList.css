@@ -2,4 +2,5 @@
   display: flex;
   flex-wrap: wrap;
   margin: calc(var(--grid-item-gap) / -2);
+  padding: 10px 0;
 }

@@ -15,11 +15,11 @@ export default {
 </script>
 
 <template>
-  <main class="container">
+  <div class="container">
     <ul class="note-list">
       <NoteCard v-for="note in notes" :key="note.id" :note="note" />
     </ul>
-  </main>
+  </div>
 </template>
 
 <style scoped src="./NoteList.css"></style>

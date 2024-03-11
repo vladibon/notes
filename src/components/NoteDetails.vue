@@ -21,19 +21,34 @@ export default {
       this.note.category = category;
       this.updateNote();
     },
+
+    toggleFavorite() {
+      this.note.favorite = !this.note.favorite;
+      this.updateNote();
+    },
   },
 };
 </script>
 
 <template>
-  <main class="container">
-    <CategorySelect :selectedCategory="note.category" @update:category="updateCategory" />
+  <div class="container full-height">
+    <div class="toolbar">
+      <CategorySelect :selectedCategory="note.category" @update:category="updateCategory" />
 
-    <div @change="updateNote">
-      <input v-model="note.title" class="text-field" type="text" placeholder="Title" />
-      <textarea v-model="note.content" class="text-field note" type="text" placeholder="Note" />
+      <div class="favorite-icon" @click="toggleFavorite">
+        <svg width="22" height="22" :fill="note.favorite ? '#ffca28' : '#ddd'">
+          <use href="/src/images/icons.svg#star"></use>
+        </svg>
+
+        <span class="lable" :style="`color: ${note.favorite ? '#ffca28' : '#ddd'}`">favorite</span>
+      </div>
     </div>
-  </main>
+
+    <div class="note-content" @change="updateNote">
+      <input v-model="note.title" class="text-field" type="text" placeholder="Title" />
+      <textarea v-model="note.content" class="text-field textarea" type="text" placeholder="Note" />
+    </div>
+  </div>
 </template>
 
 <style scoped src="./NoteDetails.css"></style>
