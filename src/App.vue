@@ -12,7 +12,9 @@ export default {
 
 <template>
   <AppBar />
-  <RouterView />
+  <main class="main">
+    <RouterView />
+  </main>
 </template>
 
 <style src="@/assets/main.css"></style>

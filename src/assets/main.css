@@ -11,10 +11,19 @@ body {
   background-color: var(--bg-color);
 }
 
+.main {
+  height: 100vh;
+  padding-top: 50px;
+}
+
 img {
   display: block;
   max-width: 100%;
   height: auto;
+}
+
+svg {
+  display: block;
 }
 
 ul {
