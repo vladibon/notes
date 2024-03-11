@@ -33,15 +33,15 @@ export default {
 <template>
   <div class="container full-height">
     <div class="toolbar">
-      <CategorySelect :selectedCategory="note.category" @update:category="updateCategory" />
-
       <div class="favorite-icon" @click="toggleFavorite">
-        <svg width="22" height="22" :fill="note.favorite ? '#ffca28' : '#ddd'">
+        <svg width="22" height="22" :fill="note.favorite ? '#ffca28' : '#aaa'">
           <use href="/src/images/icons.svg#star"></use>
         </svg>
 
-        <span class="lable" :style="`color: ${note.favorite ? '#ffca28' : '#ddd'}`">favorite</span>
+        <span class="lable" :style="`color: ${note.favorite ? '#ffca28' : '#aaa'}`">favorite</span>
       </div>
+
+      <CategorySelect :selectedCategory="note.category" @update:category="updateCategory" />
     </div>
 
     <div class="note-content" @change="updateNote">

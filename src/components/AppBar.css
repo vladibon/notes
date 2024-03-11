@@ -2,13 +2,14 @@
   position: fixed;
   top: 0;
   left: 0;
+  z-index: 1;
   width: 100%;
   border: 1px solid var(--border-color);
   box-shadow: var(--card-shadow);
   background-color: var(--text-field-bg-color);
 }
 
-.nav {
+.controls {
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -19,7 +20,28 @@
 }
 
 .add-btn {
-  margin-left: auto;
+  /* margin-left: auto; */
   padding: 10px 0;
   cursor: pointer;
+}
+
+.filters {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-grow: 1;
+}
+
+.favorite-icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 20px;
+  padding: 10px 0;
+  cursor: pointer;
+}
+
+.lable {
+  margin-left: 10px;
+  text-transform: capitalize;
 }

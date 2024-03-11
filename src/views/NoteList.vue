@@ -6,10 +6,10 @@ export default {
     NoteCard,
   },
 
-  data() {
-    return {
-      notes: this.$store.state.notes.sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
-    };
+  computed: {
+    notes() {
+      return this.$store.getters.getNotes;
+    },
   },
 };
 </script>

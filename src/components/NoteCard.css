@@ -1,8 +1,9 @@
 .note-card {
+  position: relative;
   margin: calc(var(--grid-item-gap) / 2);
   background-color: var(--text-field-bg-color);
   border: 1px solid var(--border-color);
-  border-radius: 8px;
+  border-radius: 5px;
   box-shadow: var(--card-shadow);
   transition: box-shadow var(--animation);
   overflow: hidden;
@@ -41,11 +42,23 @@
   padding: 10px;
 }
 
-.icons {
+.icons-wrapper {
   display: flex;
-  justify-content: space-between;
+  justify-content: start;
   align-items: center;
   margin-bottom: 4px;
+}
+
+.star-icon {
+  margin-right: 10px;
+}
+
+.delete-btn {
+  position: absolute;
+  top: 0;
+  right: 0;
+  padding: 10px;
+  cursor: pointer;
 }
 
 .title {

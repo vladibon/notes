@@ -35,10 +35,13 @@ import { nanoid } from 'nanoid';
 export default createStore({
   state: {
     notes: useStorage('vuex/notes', []),
+    favoritesFilter: useStorage('vuex/favoritesFilter', false),
     availableCategories: ['work', 'family', 'hobby'],
   },
 
   getters: {
+    getNotes: state => state.notes.filter(n => !state.favoritesFilter || n.favorite),
+
     getNoteById: state => id => ({ ...state.notes.find(note => note.id === id) }),
   },
 
