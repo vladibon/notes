@@ -31,7 +31,7 @@ export default {
       @click="updateCategory"
     >
       <svg width="22" height="22" :fill="category === selectedCategory ? '#2196f3' : '#aaa'">
-        <use :href="`/src/images/icons.svg#${category}`"></use>
+        <use :href="`/icons.svg#${category}`"></use>
       </svg>
 
       <span class="lable" :style="`color: ${category === selectedCategory ? '#2196f3' : '#aaa'}`">

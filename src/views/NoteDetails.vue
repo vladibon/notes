@@ -35,7 +35,7 @@ export default {
     <div class="toolbar">
       <div class="favorite-icon" @click="toggleFavorite">
         <svg width="22" height="22" :fill="note.favorite ? '#ffca28' : '#aaa'">
-          <use href="/src/images/icons.svg#star"></use>
+          <use href="/icons.svg#star"></use>
         </svg>
 
         <span class="lable" :style="`color: ${note.favorite ? '#ffca28' : '#aaa'}`">favorite</span>

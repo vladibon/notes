@@ -27,7 +27,7 @@ export default {
   <li class="note-card">
     <div class="delete-btn" @click="deleteNote">
       <svg width="18" height="18">
-        <use href="/src/images/icons.svg#remove"></use>
+        <use href="/icons.svg#remove"></use>
       </svg>
     </div>
 
@@ -35,11 +35,11 @@ export default {
       <div class="card-content">
         <div class="icons-wrapper">
           <svg class="star-icon" width="18" height="18" :fill="note.favorite ? '#ffca28' : '#aaa'">
-            <use href="/src/images/icons.svg#star"></use>
+            <use href="/icons.svg#star"></use>
           </svg>
 
           <svg width="18" height="18" fill="#2196f3">
-            <use :href="`/src/images/icons.svg#${note.category}`"></use>
+            <use :href="`/icons.svg#${note.category}`"></use>
           </svg>
         </div>
 

@@ -25,7 +25,7 @@ export default {
     <div class="controls container">
       <RouterLink v-show="$route.path !== '/'" to="/" class="list-page-link">
         <svg width="28" height="28" fill="#2196f3">
-          <use href="/src/images/icons.svg#arrow-left"></use>
+          <use href="/icons.svg#arrow-left"></use>
         </svg>
       </RouterLink>
 
@@ -33,14 +33,14 @@ export default {
       <div v-show="$route.path === '/'" class="filters">
         <div class="favorite-icon" @click="this.favoritesFilter = !this.favoritesFilter">
           <svg width="22" height="22" :fill="favoritesFilter ? '#ffca28' : '#aaa'">
-            <use href="/src/images/icons.svg#star"></use>
+            <use href="/icons.svg#star"></use>
           </svg>
         </div>
       </div>
 
       <div class="add-btn" @click="createNoteAndNavigateToNotePage">
         <svg class="add-btn__icon" width="28" height="28" fill="#2196f3">
-          <use href="/src/images/icons.svg#plus"></use>
+          <use href="/icons.svg#plus"></use>
         </svg>
       </div>
     </div>
