@@ -20,24 +20,26 @@
 }
 
 .add-btn {
-  /* margin-left: auto; */
+  margin-left: auto;
   padding: 10px 0;
   cursor: pointer;
 }
 
-.filters {
+.filter {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
   display: flex;
   justify-content: center;
   align-items: center;
-  flex-grow: 1;
 }
 
 .favorite-icon {
   display: flex;
   justify-content: center;
   align-items: center;
-  margin-right: 20px;
-  padding: 10px 0;
+  padding: 13px 0;
   cursor: pointer;
 }
 
