@@ -2,36 +2,6 @@ import { createStore } from 'vuex';
 import { useStorage } from '@vueuse/core';
 import { nanoid } from 'nanoid';
 
-// export const exampleNotes = [
-//   {
-//     id: 1,
-//     title: 'First note',
-//     content: 'This is the first note',
-//     category: 'work',
-//     createdAt: new Date().toISOString(),
-//     updatedAt: new Date().toISOString(),
-//     favorite: false,
-//   },
-//   {
-//     id: 2,
-//     title: 'Second note',
-//     content: 'This is the second note',
-//     category: 'personal',
-//     createdAt: new Date().toISOString(),
-//     updatedAt: new Date().toISOString(),
-//     favorite: false,
-//   },
-//   {
-//     id: 3,
-//     title: 'Third note',
-//     content: 'This is the third note',
-//     category: 'work',
-//     createdAt: new Date().toISOString(),
-//     updatedAt: new Date().toISOString(),
-//     favorite: true,
-//   },
-// ];
-
 export default createStore({
   state: {
     notes: useStorage('vuex/notes', []),

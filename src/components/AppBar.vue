@@ -29,7 +29,6 @@ export default {
         </svg>
       </RouterLink>
 
-      <!-- Filers -->
       <div v-show="$route.path === '/'" class="filter">
         <div class="favorite-icon" @click="this.favoritesFilter = !this.favoritesFilter">
           <svg width="22" height="22" :fill="favoritesFilter ? '#ffca28' : '#aaa'">
