@@ -8,16 +8,23 @@ export default {
   },
 
   methods: {
-    formatDate(isoTime) {
-      return new Date(isoTime).toLocaleTimeString('en-GB', {
+    deleteNote() {
+      this.$store.commit('deleteNote', this.note.id);
+    },
+
+    getDateString(isoDate) {
+      return new Date(isoDate).toLocaleDateString('en-GB', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
       });
     },
 
-    deleteNote() {
-      this.$store.commit('deleteNote', this.note.id);
+    getTimeString(isoDate) {
+      return new Date(isoDate).toLocaleTimeString('en-GB', {
+        hour: '2-digit',
+        minute: '2-digit',
+      });
     },
   },
 };
@@ -32,8 +39,8 @@ export default {
     </div>
 
     <RouterLink :to="{ name: 'note', params: { id: note.id } }">
-      <div class="card-content">
-        <div class="icons-wrapper">
+      <div class="card-detailst">
+        <div class="icon-bar">
           <svg class="star-icon" width="18" height="18" :fill="note.favorite ? '#ffca28' : '#aaa'">
             <use href="/icons.svg#star"></use>
           </svg>
@@ -45,7 +52,10 @@ export default {
 
         <h3 class="title">{{ note.title }}</h3>
         <p class="content">{{ note.content }}</p>
-        <p class="date">{{ formatDate(note.updatedAt) }}</p>
+        <div class="date">
+          <p>{{ getDateString(note.updatedAt) }}</p>
+          <p>{{ getTimeString(note.updatedAt) }}</p>
+        </div>
       </div>
     </RouterLink>
   </li>
