@@ -1,4 +1,4 @@
-.full-height {
+.section {
   height: 100%;
   padding-top: 10px;
   padding-bottom: 10px;
@@ -24,30 +24,30 @@
   cursor: pointer;
 }
 
-.lable {
+.favorite-lable {
   margin-left: 10px;
   text-transform: capitalize;
 }
 
-.note-content {
+.note-details {
   height: calc(100% - 236px);
   margin-top: 10px;
 }
 
 @media screen and (min-width: 213px) {
-  .note-content {
+  .note-details {
     height: calc(100% - 192px);
   }
 }
 
 @media screen and (min-width: 299px) {
-  .note-content {
+  .note-details {
     height: calc(100% - 148px);
   }
 }
 
 @media screen and (min-width: 405px) {
-  .note-content {
+  .note-details {
     height: calc(100% - 104px);
   }
 }

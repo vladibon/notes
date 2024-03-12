@@ -1,5 +1,5 @@
 <script>
-import NoteCard from '@/components/NoteCard.vue';
+import NoteCard from '@/components/NoteCard';
 
 export default {
   components: {

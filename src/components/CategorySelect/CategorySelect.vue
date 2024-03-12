@@ -24,17 +24,20 @@ export default {
 <template>
   <ul class="category-list">
     <li
-      class="category-item"
       v-for="category in availableCategories"
       :key="category"
       :id="category"
+      class="category-item"
       @click="updateCategory"
     >
       <svg width="22" height="22" :fill="category === selectedCategory ? '#2196f3' : '#aaa'">
         <use :href="`/icons.svg#${category}`"></use>
       </svg>
 
-      <span class="lable" :style="`color: ${category === selectedCategory ? '#2196f3' : '#aaa'}`">
+      <span
+        class="category-lable"
+        :style="`color: ${category === selectedCategory ? '#2196f3' : '#aaa'}`"
+      >
         {{ category }}
       </span>
     </li>
