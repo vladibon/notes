@@ -1,6 +1,5 @@
 import { createRouter, createWebHistory } from 'vue-router';
 import NoteList from '@/views/NoteList';
-import NoteDetails from '@/views/NoteDetails';
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
@@ -13,7 +12,7 @@ const router = createRouter({
     {
       path: '/note/:id',
       name: 'note',
-      component: NoteDetails,
+      component: () => import('../views/NoteDetails'),
     },
   ],
 });
