@@ -43,11 +43,16 @@ export default {
     <RouterLink :to="{ name: 'note', params: { id: note.id } }">
       <div class="card-detailst">
         <div class="icon-bar">
-          <svg class="star-icon" width="18" height="18" :fill="note.favorite ? '#ffca28' : '#aaa'">
+          <svg
+            class="favorite-icon"
+            width="18"
+            height="18"
+            :fill="$getCSSVariable(note.favorite ? '--secondary-accent-color' : '--icon-color')"
+          >
             <use href="/icons.svg#star"></use>
           </svg>
 
-          <svg width="18" height="18" fill="#2196f3">
+          <svg width="18" height="18" :fill="$getCSSVariable('--primary-accent-color')">
             <use :href="`/icons.svg#${note.category}`"></use>
           </svg>
         </div>

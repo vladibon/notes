@@ -17,6 +17,12 @@ export default {
     updateCategory(event) {
       this.$emit('update:category', event.currentTarget.id);
     },
+
+    getCategoryIconColor(category) {
+      return this.$getCSSVariable(
+        category === this.selectedCategory ? '--primary-accent-color' : '--icon-color',
+      );
+    },
   },
 };
 </script>
@@ -30,14 +36,11 @@ export default {
       class="category-item"
       @click="updateCategory"
     >
-      <svg width="22" height="22" :fill="category === selectedCategory ? '#2196f3' : '#aaa'">
+      <svg width="22" height="22" :fill="getCategoryIconColor(category)">
         <use :href="`/icons.svg#${category}`"></use>
       </svg>
 
-      <span
-        class="category-lable"
-        :style="`color: ${category === selectedCategory ? '#2196f3' : '#aaa'}`"
-      >
+      <span class="category-lable" :style="`color: ${getCategoryIconColor(category)}`">
         {{ category }}
       </span>
     </li>

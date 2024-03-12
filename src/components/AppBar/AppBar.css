@@ -6,7 +6,7 @@
   width: 100%;
   border: 1px solid var(--border-color);
   box-shadow: var(--card-shadow);
-  background-color: var(--text-field-bg-color);
+  background-color: var(--accent-bg-color);
 }
 
 .controls {

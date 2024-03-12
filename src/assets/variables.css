@@ -6,15 +6,15 @@
   --title-color: #333;
   --text-color: #212121;
   --date-color: #777;
-  --white-text-color: #ffffff;
 
   /* Background Colors */
   --bg-color: #ffffff;
-  --text-field-bg-color: #f8f8f8;
-  --dark-bg-color: #2f303a;
+  --accent-bg-color: #f8f8f8;
 
   /* Brand Colors */
-  --accent-color: #2196f3;
+  --icon-color: #aaa;
+  --primary-accent-color: #2196f3;
+  --secondary-accent-color: #ffca28;
   --border-color: #ddd;
 
   /* Shadows */

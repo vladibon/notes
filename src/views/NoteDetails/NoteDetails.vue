@@ -10,6 +10,10 @@ export default {
     note() {
       return this.$store.getters.getNoteById(this.$route.params.id);
     },
+
+    favoriteIconColor() {
+      return this.$getCSSVariable(this.note.favorite ? '--secondary-accent-color' : '--icon-color');
+    },
   },
 
   methods: {
@@ -34,13 +38,11 @@ export default {
   <div class="container section">
     <div class="toolbar">
       <div class="favorite-icon" @click="toggleFavorite">
-        <svg width="22" height="22" :fill="note.favorite ? '#ffca28' : '#aaa'">
+        <svg width="22" height="22" :fill="favoriteIconColor">
           <use href="/icons.svg#star"></use>
         </svg>
 
-        <span class="favorite-lable" :style="`color: ${note.favorite ? '#ffca28' : '#aaa'}`">
-          favorite
-        </span>
+        <span class="favorite-lable" :style="`color: ${favoriteIconColor}`">favorite</span>
       </div>
 
       <CategorySelect :selectedCategory="note.category" @update:category="updateCategory" />

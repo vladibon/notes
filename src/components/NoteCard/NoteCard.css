@@ -2,7 +2,7 @@
   position: relative;
   margin: calc(var(--grid-item-gap) / 2);
   flex-basis: calc(100% - var(--grid-item-gap));
-  background-color: var(--text-field-bg-color);
+  background-color: var(--accent-bg-color);
   border: 1px solid var(--border-color);
   border-radius: 5px;
   box-shadow: var(--card-shadow);
@@ -52,7 +52,7 @@
   margin-bottom: 4px;
 }
 
-.star-icon {
+.favorite-icon {
   margin-right: 10px;
 }
 
