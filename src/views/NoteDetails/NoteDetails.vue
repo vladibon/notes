@@ -1,4 +1,5 @@
 <script>
+import { nextTick } from 'vue';
 import CategorySelect from '@/components/CategorySelect';
 
 export default {
@@ -8,6 +9,7 @@ export default {
 
   computed: {
     note() {
+      nextTick(() => this.$refs.textarea.focus());
       return this.$store.getters.getNoteById(this.$route.params.id);
     },
 
@@ -19,12 +21,12 @@ export default {
   methods: {
     toggleFavorite() {
       this.note.favorite = !this.note.favorite;
-      this.updateNote();
+      this.$store.commit('updateNote', this.note);
     },
 
     updateCategory(category) {
       this.note.category = category;
-      this.updateNote();
+      this.$store.commit('updateNote', this.note);
     },
 
     updateNote() {
@@ -50,7 +52,13 @@ export default {
 
     <div class="note-details" @change="updateNote">
       <input v-model="note.title" class="text-field" type="text" placeholder="Title" />
-      <textarea v-model="note.content" class="text-field textarea" type="text" placeholder="Note" />
+      <textarea
+        v-model="note.content"
+        ref="textarea"
+        class="text-field textarea"
+        type="text"
+        placeholder="Note"
+      />
     </div>
   </div>
 </template>
