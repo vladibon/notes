@@ -1,6 +1,10 @@
 <script>
 export default {
   computed: {
+    notes() {
+      return this.$store.state.notes;
+    },
+
     favoritesFilter: {
       get() {
         return this.$store.state.favoritesFilter;
@@ -30,7 +34,7 @@ export default {
         </svg>
       </RouterLink>
 
-      <div v-show="$route.path === '/'" class="filter">
+      <div v-show="$route.path === '/' && notes.length" class="filter">
         <div class="favorite-icon" @click="this.favoritesFilter = !this.favoritesFilter">
           <svg
             width="22"

@@ -1,14 +1,16 @@
 <script>
 import NoteCard from '@/components/NoteCard';
+import BackdropIcon from '@/components/BackdropIcon';
 
 export default {
   components: {
     NoteCard,
+    BackdropIcon,
   },
 
   computed: {
     notes() {
-      return this.$store.getters.getNotes;
+      return this.$store.getters.getFilteredNotes;
     },
   },
 };
@@ -19,6 +21,8 @@ export default {
     <ul class="note-list">
       <NoteCard v-for="note in notes" :key="note.id" :note="note" />
     </ul>
+
+    <BackdropIcon v-if="!notes.length" />
   </div>
 </template>
 
