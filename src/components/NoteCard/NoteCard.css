@@ -32,10 +32,17 @@
   }
 }
 
-.delete-btn {
+.card-controls {
   position: absolute;
   top: 0;
-  right: 0;
+  left: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+}
+
+.favorite-icon,
+.delete-icon {
   padding: 10px;
   cursor: pointer;
 }
@@ -49,11 +56,9 @@
   display: flex;
   justify-content: start;
   align-items: center;
+  padding-left: 28px;
+  padding-right: 28px;
   margin-bottom: 4px;
-}
-
-.favorite-icon {
-  margin-right: 10px;
 }
 
 .title {

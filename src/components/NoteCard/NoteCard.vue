@@ -25,6 +25,10 @@ export default {
   },
 
   methods: {
+    toggleFavorite() {
+      this.$store.commit('updateNote', { ...this.note, favorite: !this.note.favorite });
+    },
+
     deleteNote() {
       this.$store.commit('deleteNote', this.note.id);
     },
@@ -34,24 +38,27 @@ export default {
 
 <template>
   <li class="note-card">
-    <div class="delete-btn" @click="deleteNote">
-      <svg width="18" height="18">
-        <use href="/icons.svg#remove"></use>
-      </svg>
+    <div class="card-controls">
+      <div class="favorite-icon" @click="toggleFavorite">
+        <svg
+          width="18"
+          height="18"
+          :fill="$getCSSVariable(note.favorite ? '--secondary-accent-color' : '--icon-color')"
+        >
+          <use href="/icons.svg#star"></use>
+        </svg>
+      </div>
+
+      <div class="delete-icon" @click="deleteNote">
+        <svg width="18" height="18">
+          <use href="/icons.svg#remove"></use>
+        </svg>
+      </div>
     </div>
 
     <RouterLink :to="{ name: 'note', params: { id: note.id } }">
       <div class="card-detailst">
         <div class="icon-bar">
-          <svg
-            class="favorite-icon"
-            width="18"
-            height="18"
-            :fill="$getCSSVariable(note.favorite ? '--secondary-accent-color' : '--icon-color')"
-          >
-            <use href="/icons.svg#star"></use>
-          </svg>
-
           <svg width="18" height="18" :fill="$getCSSVariable('--primary-accent-color')">
             <use :href="`/icons.svg#${note.category}`"></use>
           </svg>
