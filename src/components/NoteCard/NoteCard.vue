@@ -7,24 +7,26 @@ export default {
     },
   },
 
-  methods: {
-    deleteNote() {
-      this.$store.commit('deleteNote', this.note.id);
-    },
-
-    getDateString(isoDate) {
-      return new Date(isoDate).toLocaleDateString('en-GB', {
+  computed: {
+    dateString() {
+      return new Date(this.note.updatedAt).toLocaleDateString('en-GB', {
         day: '2-digit',
         month: '2-digit',
         year: 'numeric',
       });
     },
 
-    getTimeString(isoDate) {
-      return new Date(isoDate).toLocaleTimeString('en-GB', {
+    timeString() {
+      return new Date(this.note.updatedAt).toLocaleTimeString('en-GB', {
         hour: '2-digit',
         minute: '2-digit',
       });
+    },
+  },
+
+  methods: {
+    deleteNote() {
+      this.$store.commit('deleteNote', this.note.id);
     },
   },
 };
@@ -53,8 +55,8 @@ export default {
         <h3 class="title">{{ note.title }}</h3>
         <p class="content">{{ note.content }}</p>
         <div class="date">
-          <p>{{ getDateString(note.updatedAt) }}</p>
-          <p>{{ getTimeString(note.updatedAt) }}</p>
+          <p>{{ dateString }}</p>
+          <p>{{ timeString }}</p>
         </div>
       </div>
     </RouterLink>
