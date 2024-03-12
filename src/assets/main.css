@@ -3,6 +3,7 @@
 @import url("container.css");
 
 body {
+  margin: 0;
   font-family: var(--main-font);
   font-size: 14px;
   line-height: 1.71;
@@ -14,30 +15,4 @@ body {
 .main {
   height: 100vh;
   padding-top: 50px;
-}
-
-img {
-  display: block;
-  max-width: 100%;
-  height: auto;
-}
-
-svg {
-  display: block;
-}
-
-ul {
-  margin-top: 0;
-  margin-bottom: 0;
-  padding-left: 0;
-  list-style: none;
-}
-
-p {
-  margin: 0;
-  padding: 0;
-}
-
-a {
-  text-decoration: none;
 }
