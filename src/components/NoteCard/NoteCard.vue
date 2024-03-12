@@ -55,8 +55,8 @@ export default {
         <h3 class="title">{{ note.title }}</h3>
         <p class="content">{{ note.content }}</p>
         <div class="date">
-          <p>{{ dateString }}</p>
-          <p>{{ timeString }}</p>
+          <span>{{ dateString }}</span>
+          <span>{{ timeString }}</span>
         </div>
       </div>
     </RouterLink>

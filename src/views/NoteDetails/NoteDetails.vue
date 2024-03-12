@@ -13,8 +13,9 @@ export default {
   },
 
   methods: {
-    updateNote() {
-      this.$store.dispatch('editNote', this.note);
+    toggleFavorite() {
+      this.note.favorite = !this.note.favorite;
+      this.updateNote();
     },
 
     updateCategory(category) {
@@ -22,9 +23,8 @@ export default {
       this.updateNote();
     },
 
-    toggleFavorite() {
-      this.note.favorite = !this.note.favorite;
-      this.updateNote();
+    updateNote() {
+      this.$store.dispatch('editNote', this.note);
     },
   },
 };
