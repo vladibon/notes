@@ -56,7 +56,7 @@ export default {
       </div>
     </div>
 
-    <RouterLink :to="{ name: 'note', params: { id: note.id } }">
+    <RouterLink :to="{ name: 'note', query: { id: note.id } }">
       <div class="card-detailst">
         <div class="icon-bar">
           <svg width="18" height="18" :fill="$getCSSVariable('--primary-accent-color')">

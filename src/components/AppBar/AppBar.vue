@@ -19,7 +19,7 @@ export default {
     async createNoteAndNavigateToNotePage() {
       const { id } = await this.$store.dispatch('createNote');
 
-      this.$router.push({ name: 'note', params: { id } });
+      this.$router.push({ name: 'note', query: { id } });
     },
   },
 };

@@ -1,6 +1,7 @@
 import { createStore } from 'vuex';
 import { useStorage } from '@vueuse/core';
 import { nanoid } from 'nanoid';
+import router from '@/router';
 
 export default createStore({
   state: {
@@ -15,7 +16,10 @@ export default createStore({
         .filter(n => !state.favoritesFilter || n.favorite)
         .sort((a, b) => new Date(b.updatedAt) - new Date(a.updatedAt)),
 
-    getNoteById: state => id => ({ ...state.notes.find(note => note.id === id) }),
+    getNoteById: state => id => {
+      const note = state.notes.find(note => note.id === id) || router.push('/');
+      return { ...note };
+    },
   },
 
   mutations: {

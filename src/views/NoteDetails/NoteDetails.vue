@@ -10,7 +10,7 @@ export default {
   computed: {
     note() {
       nextTick(() => this.$refs.textarea.focus());
-      return this.$store.getters.getNoteById(this.$route.params.id);
+      return this.$store.getters.getNoteById(this.$route.query.id);
     },
 
     favoriteIconColor() {
